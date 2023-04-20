@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GEscolarAPI.Infra.SqlServer", "GEscolarAPI.Infra.SqlServer\GEscolarAPI.Infra.SqlServer.csproj", "{0D3D1170-0B32-46F2-8DF1-E99D76D6D1ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GEscolar.Domain", "GEscolar.Domain\GEscolar.Domain.csproj", "{6BAFE012-8F31-4354-ABA1-AC7A5DA48007}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "Utils\Utils.csproj", "{7F2225EC-7C0D-4325-BC6F-4F220999B120}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GEscolar.API", "GEscolar.API\GEscolar.API.csproj", "{423B5C3A-9816-460D-A097-4B90AE00BCF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEscolar.Commands", "GEscolar.Commands\GEscolar.Commands.csproj", "{67693E24-6604-45C8-A0AD-5992BC3E29AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEscolar.Queries", "GEscolar.Queries\GEscolar.Queries.csproj", "{091B08A3-1C53-41E7-A9FC-40AB29EE6630}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D3D1170-0B32-46F2-8DF1-E99D76D6D1ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D3D1170-0B32-46F2-8DF1-E99D76D6D1ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D3D1170-0B32-46F2-8DF1-E99D76D6D1ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3D1170-0B32-46F2-8DF1-E99D76D6D1ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BAFE012-8F31-4354-ABA1-AC7A5DA48007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BAFE012-8F31-4354-ABA1-AC7A5DA48007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BAFE012-8F31-4354-ABA1-AC7A5DA48007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BAFE012-8F31-4354-ABA1-AC7A5DA48007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F2225EC-7C0D-4325-BC6F-4F220999B120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F2225EC-7C0D-4325-BC6F-4F220999B120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F2225EC-7C0D-4325-BC6F-4F220999B120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F2225EC-7C0D-4325-BC6F-4F220999B120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{423B5C3A-9816-460D-A097-4B90AE00BCF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{423B5C3A-9816-460D-A097-4B90AE00BCF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{423B5C3A-9816-460D-A097-4B90AE00BCF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{423B5C3A-9816-460D-A097-4B90AE00BCF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67693E24-6604-45C8-A0AD-5992BC3E29AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67693E24-6604-45C8-A0AD-5992BC3E29AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67693E24-6604-45C8-A0AD-5992BC3E29AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67693E24-6604-45C8-A0AD-5992BC3E29AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{091B08A3-1C53-41E7-A9FC-40AB29EE6630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{091B08A3-1C53-41E7-A9FC-40AB29EE6630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{091B08A3-1C53-41E7-A9FC-40AB29EE6630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{091B08A3-1C53-41E7-A9FC-40AB29EE6630}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D47D099-2473-4715-92CA-480F09702AC6}
+	EndGlobalSection
+EndGlobal
