@@ -10,7 +10,7 @@ namespace GEscolar.API.Infra.SqlServer.Data
         public EscolarDbContext(DbContextOptions<EscolarDbContext> options) : base(options)
         {
         }
-
+        
         public DbSet<Aluno> Alunos { get; set; }
         public DbSet<Boletim> Boletims { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
@@ -20,11 +20,11 @@ namespace GEscolar.API.Infra.SqlServer.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AlunoMap());
+            //modelBuilder.ApplyConfiguration(new AlunoMap());
             modelBuilder.ApplyConfiguration(new BoletimMap());
             modelBuilder.ApplyConfiguration(new DisciplinaMap());
             modelBuilder.ApplyConfiguration(new NotasBoletimMap());
-            modelBuilder.ApplyConfiguration(new ProfessorMap());
+            //modelBuilder.ApplyConfiguration(new ProfessorMap());
             modelBuilder.ApplyConfiguration(new TurmaMap());
 
             base.OnModelCreating(modelBuilder);

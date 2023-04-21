@@ -20,12 +20,8 @@ namespace GEscolar.API.Infra.SqlServer.Mapping
                 .HasColumnName("IDDISCIPLINA")                
                 .IsRequired();
 
-            builder.Property(x => x.IdProfessor)
-                .HasColumnName("IDPROFESSOR")                
-                .IsRequired();
-
-            builder.Property(x => x.IdAluno)
-                .HasColumnName("IDALUNO")
+            builder.Property(x => x.IdUsuario)
+                .HasColumnName("IDUSUARIO")
                 .IsRequired();
 
             builder.Property(x => x.Ativo)
@@ -36,13 +32,9 @@ namespace GEscolar.API.Infra.SqlServer.Mapping
                 .WithMany(d => d.Turmas)
                 .HasForeignKey(x => x.IdDisciplina);
 
-            builder.HasOne(x => x.Professor)
-                .WithMany(d => d.Turmas)
-                .HasForeignKey(x => x.IdProfessor);
-
-            builder.HasOne(x => x.Aluno)
-                .WithMany(d => d.Turmas)
-                .HasForeignKey(x => x.IdAluno);
+            builder.HasOne(x => x.Usuario)
+                .WithMany()
+                .HasForeignKey(x => x.IdUsuario);
         }
     }
 }

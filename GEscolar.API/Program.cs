@@ -26,6 +26,9 @@ builder.Services.AddDbContext<EscolarDbContext>(options =>
     options.UseSqlServer(settings.DefaultConnection);
 });
 
+//Identity
+builder.Services.AddIdentityConfiguration(builder.Configuration);
+
 //mediatR
 builder.Services.AddQueries();
 builder.Services.AddCommands();
@@ -51,6 +54,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseAuthentication();
 
 app.UseHttpsRedirection();
 

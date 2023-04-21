@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GEscolarAPI.Infra.SqlServer.Migrations
 {
     [DbContext(typeof(EscolarDbContext))]
-    [Migration("20230419030936_Initial-create")]
-    partial class Initialcreate
+    [Migration("20230420223559_Initial_create")]
+    partial class Initial_create
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,32 +29,25 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("IDALUNO");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("Ativo")
-                        .HasColumnType("bit")
-                        .HasColumnName("ATIVO");
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("DATANASCIMETO");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)")
-                        .HasColumnName("EMAIL");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("NOME");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TBLALUNO", (string)null);
+                    b.ToTable("Alunos");
                 });
 
             modelBuilder.Entity("GEscolar.Domain.Entity.Boletim", b =>
@@ -72,14 +65,14 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("DATAENTREGA");
 
-                    b.Property<Guid>("IdAluno")
+                    b.Property<Guid>("IdUsuario")
                         .HasMaxLength(50)
                         .HasColumnType("uniqueidentifier")
-                        .HasColumnName("IDALUNO");
+                        .HasColumnName("IDUSUARIO");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdAluno");
+                    b.HasIndex("IdUsuario");
 
                     b.ToTable("TBLBOLETIM", (string)null);
                 });
@@ -147,32 +140,25 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("IDPROFESSOR");
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("Ativo")
-                        .HasColumnType("bit")
-                        .HasColumnName("ATIVO");
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("DATANASCIMETO");
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)")
-                        .HasColumnName("EMAIL");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("NOME");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("TBLPROFESSOR", (string)null);
+                    b.ToTable("Professores");
                 });
 
             modelBuilder.Entity("GEscolar.Domain.Entity.Turma", b =>
@@ -186,38 +172,95 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
                         .HasColumnType("bit")
                         .HasColumnName("ATIVO");
 
-                    b.Property<Guid>("IdAluno")
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("IDALUNO");
-
                     b.Property<Guid>("IdDisciplina")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("IDDISCIPLINA");
 
-                    b.Property<Guid>("IdProfessor")
+                    b.Property<Guid>("IdUsuario")
                         .HasColumnType("uniqueidentifier")
-                        .HasColumnName("IDPROFESSOR");
+                        .HasColumnName("IDUSUARIO");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdAluno");
-
                     b.HasIndex("IdDisciplina");
 
-                    b.HasIndex("IdProfessor");
+                    b.HasIndex("IdUsuario");
 
                     b.ToTable("TBLTURMA", (string)null);
                 });
 
+            modelBuilder.Entity("GEscolar.Domain.Entity.Usuario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DataNascimento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Tipo")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuario");
+                });
+
             modelBuilder.Entity("GEscolar.Domain.Entity.Boletim", b =>
                 {
-                    b.HasOne("GEscolar.Domain.Entity.Aluno", "Aluno")
-                        .WithMany("Boletins")
-                        .HasForeignKey("IdAluno")
+                    b.HasOne("GEscolar.Domain.Entity.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Aluno");
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("GEscolar.Domain.Entity.NotasBoletim", b =>
@@ -240,36 +283,21 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
 
             modelBuilder.Entity("GEscolar.Domain.Entity.Turma", b =>
                 {
-                    b.HasOne("GEscolar.Domain.Entity.Aluno", "Aluno")
-                        .WithMany("Turmas")
-                        .HasForeignKey("IdAluno")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("GEscolar.Domain.Entity.Disciplina", "Disciplina")
                         .WithMany("Turmas")
                         .HasForeignKey("IdDisciplina")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GEscolar.Domain.Entity.Professor", "Professor")
-                        .WithMany("Turmas")
-                        .HasForeignKey("IdProfessor")
+                    b.HasOne("GEscolar.Domain.Entity.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("IdUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Aluno");
-
                     b.Navigation("Disciplina");
 
-                    b.Navigation("Professor");
-                });
-
-            modelBuilder.Entity("GEscolar.Domain.Entity.Aluno", b =>
-                {
-                    b.Navigation("Boletins");
-
-                    b.Navigation("Turmas");
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("GEscolar.Domain.Entity.Boletim", b =>
@@ -278,11 +306,6 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
                 });
 
             modelBuilder.Entity("GEscolar.Domain.Entity.Disciplina", b =>
-                {
-                    b.Navigation("Turmas");
-                });
-
-            modelBuilder.Entity("GEscolar.Domain.Entity.Professor", b =>
                 {
                     b.Navigation("Turmas");
                 });
