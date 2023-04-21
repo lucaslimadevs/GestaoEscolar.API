@@ -1,10 +1,12 @@
 using GEscolar.Commands.Alunos.Command;
 using GEscolar.Queries.Alunos.Query;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CQRS_poc.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class AlunoController : ControllerBase

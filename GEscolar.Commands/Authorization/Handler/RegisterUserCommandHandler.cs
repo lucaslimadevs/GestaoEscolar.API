@@ -30,7 +30,8 @@ namespace GEscolar.Commands.Authorization.Handler
                     UserName = request.Email,
                     Email = request.Email,
                     DataNascimento = request.DataNascimento,
-                    EmailConfirmed = true
+                    Tipo = request.Tipo,
+                    EmailConfirmed = true,
                 };
 
                 var result = await _userManager.CreateAsync(user, request.Password);

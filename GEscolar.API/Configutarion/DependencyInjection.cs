@@ -9,7 +9,8 @@ namespace GEscolar.API.Configutarion
         public static void AddDIConfiguration(this IServiceCollection services)
         {
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-
+            
+            services.AddScoped<IIdentityManager, IdentityManager>();
             services.AddScoped<IProfessorRepository, ProfessorRepository>();
             services.AddScoped<IAlunoRepository, AlunoRepository>();
             services.AddScoped<IDisciplinaRepository, DisciplinaRepository>();

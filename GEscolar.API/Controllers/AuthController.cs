@@ -1,4 +1,5 @@
-﻿using GEscolar.Commands.Authorization.Command;
+﻿using GEscolar.API.Configutarion;
+using GEscolar.Commands.Authorization.Command;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,26 +11,38 @@ namespace GEscolar.API.Controllers
     {
 
         private readonly IMediator _mediator;
+        private IIdentityManager _identityManager;
 
-        public AuthController(IMediator mediator)
+        public AuthController(IMediator mediator, IIdentityManager identityManager)
         {
             _mediator = mediator;
+            _identityManager = identityManager;
         }
 
         [HttpPost("RegisterUser")]
         public async Task<IActionResult> RegisterUser([FromBody] RegisterUserCommand command)
         {
-            var result = await _mediator.Send(command);
+            var registered = await _mediator.Send(command);
 
-            return Ok(result);
+            if (registered)
+            {
+                return Ok(registered);
+            }
+
+            return BadRequest(registered);
         }
 
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
         {
-            var result = await _mediator.Send(command);
+            var authenticated = await _mediator.Send(command);
 
-            return Ok(result);
+            if (authenticated)
+            {
+                return Ok(await _identityManager.GenerateJwt(command.Email));
+            }
+
+            return Ok(authenticated);
         }
     }
 }
