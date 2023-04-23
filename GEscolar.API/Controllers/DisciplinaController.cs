@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CQRS_poc.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class DisciplinaController : ControllerBase

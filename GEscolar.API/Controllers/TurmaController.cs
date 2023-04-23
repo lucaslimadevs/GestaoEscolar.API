@@ -7,11 +7,11 @@ namespace CQRS_poc.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProfessorController : ControllerBase
+    public class TurmaController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public ProfessorController(IMediator mediator)
+        public TurmaController(IMediator mediator)
         {
             _mediator = mediator;
         }

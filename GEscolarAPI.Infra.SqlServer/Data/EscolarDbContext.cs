@@ -10,8 +10,7 @@ namespace GEscolar.API.Infra.SqlServer.Data
         public EscolarDbContext(DbContextOptions<EscolarDbContext> options) : base(options)
         {
         }
-        
-        public DbSet<Aluno> Alunos { get; set; }
+                
         public DbSet<Boletim> Boletims { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
         public DbSet<NotasBoletim> NotasBoletim { get; set; }
