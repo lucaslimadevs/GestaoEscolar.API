@@ -37,7 +37,8 @@ namespace GEscolar.Queries.NotasBoletins.Handler
                 IdTurma = e.IdTurma,
                 IdBoletim = e.IdBoletim,
                 NomeDisciplina = e.Turma.Disciplina.Nome,
-                NomeUsuario = e.Boletim.Usuario.Nome
+                NomeUsuario = e.Boletim.Usuario.Nome,
+                Nota = e.Nota
             }).ToList();
 
             result.Total = notasBoletims.Total;
