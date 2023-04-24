@@ -6,5 +6,6 @@
         public string CargaHoraria { get; set; } = string.Empty;
 
         public virtual ICollection<Turma> Turmas { get; set; }
+        public virtual ICollection<NotificacaoNota> NotificacaoNotas { get; set; }
     }
 }

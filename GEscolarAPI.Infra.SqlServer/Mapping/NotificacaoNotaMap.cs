@@ -4,24 +4,29 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace GEscolar.API.Infra.SqlServer.Mapping
 {
-    public class BoletimMap : IEntityTypeConfiguration<Boletim>
+    public class NotificacaoNotaMap : IEntityTypeConfiguration<NotificacaoNota>
     {
-        public void Configure(EntityTypeBuilder<Boletim> builder)
+        public void Configure(EntityTypeBuilder<NotificacaoNota> builder)
         {
-            builder.ToTable("TBLBOLETIM");
+            builder.ToTable("TBLNOTIFICACAONOTA");
 
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
-                .HasColumnName("IDBOLETIM")
+                .HasColumnName("IDNOTIFICACAONOTA")
                 .IsRequired();
 
             builder.Property(x => x.IdUsuario)
                 .HasColumnName("IDUSUARIO")                
                 .IsRequired();
 
-            builder.Property(x => x.DataEntrega)
-                .HasColumnName("DATAENTREGA")
+            builder.Property(x => x.IdDisciplina)
+                .HasColumnName("IDDISCIPLINA")
+                .IsRequired();
+
+            builder.Property(x => x.Nota)
+                .HasColumnName("NOTA")
+                .HasColumnType("decimal(10,2)")
                 .IsRequired();
 
             builder.Property(x => x.Ativo)
@@ -32,9 +37,9 @@ namespace GEscolar.API.Infra.SqlServer.Mapping
                 .WithMany()
                 .HasForeignKey(x => x.IdUsuario);
 
-            builder.HasMany(x => x.NotasBoletins)
-                .WithOne(d => d.Boletim)
-                .HasForeignKey(x => x.IdBoletim);
+            builder.HasOne(x => x.Disciplina)
+                .WithMany(d => d.NotificacaoNotas)
+                .HasForeignKey(x => x.IdDisciplina);
         }
     }
 }

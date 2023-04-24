@@ -11,6 +11,7 @@ namespace GEscolar.API.Infra.SqlServer.Data
         {
         }
 
+        public DbSet<NotificacaoNota> NotificacaoNotas { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Boletim> Boletims { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
@@ -25,6 +26,7 @@ namespace GEscolar.API.Infra.SqlServer.Data
             modelBuilder.ApplyConfiguration(new NotasBoletimMap());
             modelBuilder.ApplyConfiguration(new TurmaMap());
             modelBuilder.ApplyConfiguration(new UsuarioMap());
+            modelBuilder.ApplyConfiguration(new NotificacaoNotaMap());
 
             base.OnModelCreating(modelBuilder);            
         }
