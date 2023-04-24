@@ -2,7 +2,6 @@
 using GEscolar.Domain.Entity;
 using GEscolar.Domain.Filtros;
 using GEscolar.Domain.Repositories;
-using GEscolar.Domain.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace GEscolarAPI.Infra.SqlServer.Repositories
