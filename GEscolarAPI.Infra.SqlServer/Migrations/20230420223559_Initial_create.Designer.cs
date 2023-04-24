@@ -124,7 +124,7 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
                         .HasColumnName("IDTURMA");
 
                     b.Property<decimal>("Nota")
-                        .HasColumnType("decimal(2,2)")
+                        .HasColumnType("decimal(10,2)")
                         .HasColumnName("NOTA");
 
                     b.HasKey("Id");

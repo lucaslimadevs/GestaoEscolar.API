@@ -78,7 +78,7 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
                     IDNOTASBOLETIM = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IDTURMA = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IDBOLETIM = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    NOTA = table.Column<decimal>(type: "decimal(2,2)", nullable: false),
+                    NOTA = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     ATIVO = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

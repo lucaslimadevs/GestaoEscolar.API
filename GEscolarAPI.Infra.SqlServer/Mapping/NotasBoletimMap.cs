@@ -27,7 +27,7 @@ namespace GEscolar.API.Infra.SqlServer.Mapping
 
             builder.Property(x => x.Nota)
                 .HasColumnName("NOTA")
-                .HasColumnType("decimal(2,2)")
+                .HasColumnType("decimal(10,2)")
                 .IsRequired();
 
             builder.Property(x => x.Ativo)
