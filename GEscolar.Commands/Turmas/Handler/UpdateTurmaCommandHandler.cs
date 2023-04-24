@@ -1,7 +1,6 @@
 ﻿using GEscolar.Domain.Repositories;
 using MediatR;
 using GEscolar.Commands.Turmas.Command;
-using GEscolar.Queries.Turmas.Query;
 
 namespace GEscolar.Commands.Turmas.Handler
 {

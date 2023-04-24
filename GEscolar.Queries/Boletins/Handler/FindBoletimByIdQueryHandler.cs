@@ -5,7 +5,7 @@ using MediatR;
 
 namespace GEscolar.Queries.Boletins.Handler
 {
-    internal class FindBoletimByIdQueryHandler : IRequestHandler<FindBoletimByIdQuery, BoletimViewModel>
+    public class FindBoletimByIdQueryHandler : IRequestHandler<FindBoletimByIdQuery, BoletimViewModel>
     {    
         private readonly IBoletimRepository _boletimRepository;
         public FindBoletimByIdQueryHandler(IBoletimRepository boletimRepository)

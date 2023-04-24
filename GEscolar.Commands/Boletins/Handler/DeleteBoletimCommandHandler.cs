@@ -4,7 +4,7 @@ using MediatR;
 
 namespace GEscolar.Commands.Boletins.Handler
 {
-    internal class DeleteBoletimCommandHandler : IRequestHandler<DeleteBoletimCommand, bool>
+    public class DeleteBoletimCommandHandler : IRequestHandler<DeleteBoletimCommand, bool>
     {
         private readonly IBoletimRepository _boletimRepository;
         private readonly IUnitOfWork _unitOfWork;

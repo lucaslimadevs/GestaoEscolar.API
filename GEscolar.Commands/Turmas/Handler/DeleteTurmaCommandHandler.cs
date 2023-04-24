@@ -8,13 +8,11 @@ namespace GEscolar.Commands.Turmas.Handler
     public class DeleteTurmaCommandHandler : IRequestHandler<DeleteTurmaCommand, bool>
     {
         private readonly ITurmaRepository _turmaRepository;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMediator _mediator;
-        public DeleteTurmaCommandHandler(ITurmaRepository turmaRepository, IUnitOfWork unitOfWork, IMediator mediator)
+        private readonly IUnitOfWork _unitOfWork;        
+        public DeleteTurmaCommandHandler(ITurmaRepository turmaRepository, IUnitOfWork unitOfWork)
         {
             _turmaRepository = turmaRepository;
-            _unitOfWork = unitOfWork;
-            _mediator = mediator;
+            _unitOfWork = unitOfWork;            
         }
 
         public async Task<bool> Handle(DeleteTurmaCommand request, CancellationToken cancellationToken)
