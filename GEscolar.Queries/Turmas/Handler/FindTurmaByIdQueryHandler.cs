@@ -20,6 +20,7 @@ namespace GEscolar.Queries.Turmas.Handler
 
             var result = new TurmaViewModel()
             {
+                Id = turma.Id,
                 IdDisciplina = turma.IdDisciplina,
                 IdUsuario = turma.IdUsuario,
                 NomeDisciplina = turma.Disciplina.Nome,

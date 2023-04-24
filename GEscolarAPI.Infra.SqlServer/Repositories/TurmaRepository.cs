@@ -34,10 +34,17 @@ namespace GEscolarAPI.Infra.SqlServer.Repositories
 
             filtro.Total = query.Count();
 
-            filtro.Valores = await query
-                .Skip((filtro.Pagina - 1) * filtro.QuantidadePorPagina)
-                .Take(filtro.QuantidadePorPagina)
-                .ToListAsync();
+            if (filtro.QuantidadePorPagina is null)
+            {
+                filtro.Valores = await query.ToListAsync();
+            }
+            else
+            {
+                filtro.Valores = await query
+                    .Skip((filtro.Pagina - 1) * filtro.QuantidadePorPagina ?? 1)
+                    .Take(filtro.QuantidadePorPagina ?? 1)
+                    .ToListAsync();
+            }
 
             return filtro;
         }

@@ -1,6 +1,7 @@
 ﻿using GEscolar.API.Configutarion;
 using GEscolar.Commands.Authorization.Command;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GEscolar.API.Controllers
@@ -43,6 +44,15 @@ namespace GEscolar.API.Controllers
             }
 
             return Ok(authenticated);
+        }
+
+        [Authorize]
+        [HttpGet("Usuarios")]
+        public async Task<IActionResult> GetAll()
+        {
+            var usuarios = await _mediator.Send(new FindUserCommand());
+
+            return Ok(usuarios);
         }
     }
 }

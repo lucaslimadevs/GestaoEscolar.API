@@ -33,6 +33,7 @@ namespace GEscolar.Queries.Turmas.Handler
 
             result.Valores = turmas.Valores.Select(e => new TurmaViewModel
             {
+                Id = e.Id,
                 IdDisciplina = e.IdDisciplina,
                 IdUsuario = e.IdUsuario,
                 Tipo = e.Usuario.Tipo.ToString(),
