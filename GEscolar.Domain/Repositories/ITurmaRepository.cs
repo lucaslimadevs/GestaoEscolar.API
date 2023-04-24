@@ -1,5 +1,6 @@
 ﻿using GEscolar.Domain.Entity;
 using GEscolar.Domain.Filtros;
+using GEscolar.Domain.ViewModels;
 
 namespace GEscolar.Domain.Repositories
 {

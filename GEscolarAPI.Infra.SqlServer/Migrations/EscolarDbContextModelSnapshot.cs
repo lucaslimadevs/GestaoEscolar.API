@@ -44,7 +44,7 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Alunos");
+                    b.ToTable("Alunos", (string)null);
                 });
 
             modelBuilder.Entity("GEscolar.Domain.Entity.Boletim", b =>
@@ -155,7 +155,7 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Professores");
+                    b.ToTable("Professores", (string)null);
                 });
 
             modelBuilder.Entity("GEscolar.Domain.Entity.Turma", b =>
@@ -246,7 +246,7 @@ namespace GEscolarAPI.Infra.SqlServer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Usuario");
+                    b.ToTable("Usuario", (string)null);
                 });
 
             modelBuilder.Entity("GEscolar.Domain.Entity.Boletim", b =>

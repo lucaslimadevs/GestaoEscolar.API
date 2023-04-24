@@ -11,7 +11,8 @@ namespace GEscolar.API.Configutarion
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             
             services.AddScoped<IIdentityManager, IdentityManager>();
-            services.AddScoped<IProfessorRepository, ProfessorRepository>();            
+            services.AddScoped<IProfessorRepository, ProfessorRepository>();
+            services.AddScoped<ITurmaRepository, TurmaRepository>();
             services.AddScoped<IDisciplinaRepository, DisciplinaRepository>();
             services.AddScoped<INotasBoletimRepository, NotasBoletimRepository>();
             services.AddScoped<IBoletimRepository, BoletimRepository>();

@@ -2,6 +2,7 @@
 using GEscolar.Domain.Entity;
 using GEscolar.Domain.Filtros;
 using GEscolar.Domain.Repositories;
+using GEscolar.Domain.ViewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace GEscolarAPI.Infra.SqlServer.Repositories
@@ -16,6 +17,8 @@ namespace GEscolarAPI.Infra.SqlServer.Repositories
         public async Task<Turma> FindById(Guid id)
         {
             var turma = await DbSet
+                .Include(e => e.Disciplina)
+                .Include(e => e.Usuario)
                 .FirstOrDefaultAsync(e => e.Id == id && e.Ativo);
 
             return turma ?? new Turma();
@@ -24,6 +27,8 @@ namespace GEscolarAPI.Infra.SqlServer.Repositories
         public async Task<FiltroGenerico<Turma>> FindAll(FiltroGenerico<Turma> filtro)
         {
             var query = DbSet
+                .Include(e => e.Disciplina)
+                .Include(e => e.Usuario)
                 .Where(e => e.Ativo)
                 .AsQueryable();
 

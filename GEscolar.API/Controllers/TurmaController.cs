@@ -1,10 +1,12 @@
-using GEscolar.Commands.Professores.Command;
-using GEscolar.Queries.Professores.Query;
+using GEscolar.Commands.Turmas.Command;
+using GEscolar.Queries.Turmas.Query;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CQRS_poc.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class TurmaController : ControllerBase
@@ -17,7 +19,7 @@ namespace CQRS_poc.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertProfessor([FromBody] InsertProfessorCommand command)
+        public async Task<IActionResult> Insert([FromBody] InsertTurmaCommand command)
         {
             var result = await _mediator.Send(command);
 
@@ -25,31 +27,31 @@ namespace CQRS_poc.Controllers
         }
 
         [HttpGet("FindAll")]
-        public async Task<IActionResult> GetProfessores()
+        public async Task<IActionResult> GetAll([FromQuery] FindTurmaQuery query)
         {
-            var result = await _mediator.Send(new FindProfessorQuery());
+            var result = await _mediator.Send(query);
 
             return Ok(result);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetProfessorById([FromRoute] Guid id)
+        public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
-            var result = await _mediator.Send(new FindProfessorByIdQuery { Id = id });
+            var result = await _mediator.Send(new FindTurmaByIdQuery { Id = id });
 
             return Ok(result);
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProfessor([FromRoute] Guid id)
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
-            var result = await _mediator.Send(new DeleteProfessorCommand { Id = id });
+            var result = await _mediator.Send(new DeleteTurmaCommand { Id = id });
 
             return Ok(result);
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateProfessor([FromBody] UpdateProfessorCommand command)
+        public async Task<IActionResult> Update([FromBody] UpdateTurmaCommand command)
         {
             var result = await _mediator.Send(command);
 
