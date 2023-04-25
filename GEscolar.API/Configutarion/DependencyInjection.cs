@@ -17,6 +17,7 @@ namespace GEscolar.API.Configutarion
             services.AddScoped<INotasBoletimRepository, NotasBoletimRepository>();
             services.AddScoped<IBoletimRepository, BoletimRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<INotificacaoNotaRepository, NotificacaoNotaRepository>();
         }
     }
 
